@@ -277,7 +277,18 @@ const ConferenceEvent = () => {
                                 <div className="input-container venue_selection">
                                     <label htmlFor="numberOfPeople"><h3>Number of People:</h3></label>
                                     <input type="number" className="input_box5" id="numberOfPeople" value={numberOfPeople}
-                                        onChange={(e) => setNumberOfPeople(parseInt(e.target.value))}
+                                        onChange={(e) => {
+                                            {/* onChange={(e) => setNumberOfPeople(parseInt(e.target.value))}
+                                                The problem occurs when the Number of People field is left blank, which results in NaN being used in calculations.*/}
+                                            
+                                            const value = parseInt(e.target.value);
+                                            {   
+                                            if (isNaN(value) || value < 1) {
+                                                setNumberOfPeople(1);
+                                            } else {
+                                                setNumberOfPeople(value);
+                                            }
+                                        }}
                                         min="1"
                                     />
                                 </div>
