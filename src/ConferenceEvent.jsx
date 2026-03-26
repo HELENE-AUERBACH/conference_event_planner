@@ -283,10 +283,11 @@ const ConferenceEvent = () => {
                                             
                                             const value = parseInt(e.target.value);
                                             {   
-                                            if (isNaN(value) || value < 1) {
-                                                setNumberOfPeople(1);
-                                            } else {
-                                                setNumberOfPeople(value);
+                                                if (isNaN(value) || value < 1) {
+                                                    setNumberOfPeople(1);
+                                                } else {
+                                                    setNumberOfPeople(value);
+                                                }
                                             }
                                         }}
                                         min="1"
